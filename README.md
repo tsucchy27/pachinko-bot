@@ -11,7 +11,7 @@ DiscordBotのトークンを保存するためのファイル。
 
 ```python:dauth.py
 # discordBot
-TEST_TOKEN = 'token'
+PACHINKO_TOKEN = 'token'
 
 # ffmpeg
 FFMPEG_LINUX = "/usr/bin/ffmpeg"
@@ -25,5 +25,5 @@ import dauth
 
 client = discord.Client()
 
-client.run(dauth.TEST_TOKEN)
+client.run(dauth.PACHINKO_TOKEN)
 ```
