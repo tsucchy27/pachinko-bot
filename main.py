@@ -26,8 +26,9 @@ async def rush(message):
     time.sleep(1)
     await message.channel.send(r)
     time.sleep(0.2)
+    score += 450 * bet
     if r > 60:
-        await message.channel.send("RUSH失敗...")
+        await message.channel.send(f"RUSH失敗... (￥{score})")
         return
 
     # RUSH突入
@@ -84,7 +85,6 @@ async def on_message(message):
         if p == b:
             print(f"{num}回目で当たり")
             num = 0
-            await message.channel.send("当たり")
             await asyncio.create_task(rush(message))
 
 client.run(dauth.PACHINKO_TOKEN)
