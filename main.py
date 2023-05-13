@@ -40,14 +40,15 @@ async def rush(message):
         time.sleep(1)
         await message.channel.send(r)
         rush_num += 1
+        score += 1500 * bet
         
         # 継続判定
         time.sleep(0.2)
         if r <= 80:
-            await message.channel.send(f"RUSH継続!! [{rush_num}]")
+            await message.channel.send(f"RUSH継続!! [{rush_num}] (￥{score})")
         else:
             f = False
-            await message.channel.send(f"RUSH終了 [{rush_num}]")
+            await message.channel.send(f"RUSH終了 [{rush_num}] (￥{score})")
             print(f"{r} - RUSH終了")
 
 @client.event
@@ -71,11 +72,13 @@ async def on_message(message):
 
         # 回数+1
         num += 1
+        # 1回入るのに平均12.5発
+        score -= 12.5 * bet
 
         # botの手
-        b = random.randint(1, 5)
+        b = random.randint(1, 319)
         print(f"player:{p} bot:{b}")
-        await message.channel.send(f"{b} ({num})")
+        await message.channel.send(f"{b} [{num}] (￥{score})")
 
         # 判定 当たり->Rush突入、回数初期化
         if p == b:
