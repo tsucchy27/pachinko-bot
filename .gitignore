@@ -1,2 +1,3 @@
 # TOKEN管理ファイルはgit管理対象外にする
 /dauth.py
+__pycache__/
